@@ -1,6 +1,17 @@
 {
-    "name": "Streamlit App Example",
-    "description": "A barebones Streamlit App deployed to Heroku",
-    "repository": "https://github.com/gerardrbentley/simple-petsitter/tree/barebones",
-    "keywords": ["streamlit", "python"]
+    "name": "Streamlit + Postgres App Example",
+    "description": "A barebones Streamlit App deployed to Heroku with Postgres",
+    "repository": "https://github.com/gerardrbentley/simple-petsitter/tree/pg",
+    "keywords": [
+        "streamlit",
+        "python"
+    ],
+    "addons": [
+        {
+            "plan": "heroku-postgresql",
+            "options": {
+                "version": "13"
+            }
+        }
+    ]
 }
