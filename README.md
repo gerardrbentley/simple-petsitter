@@ -2,9 +2,13 @@
 
 Streamlit app deployed to Heroku
 
-- Barebones version 
+- Barebones version (Streamlit Hello World)
 
     [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/gerardrbentley/simple-petsitter/tree/barebones)
+
+- Postgres version (Init a table, Seed a row, Read all rows)
+
+    [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/gerardrbentley/simple-petsitter/tree/pg)
 
 ## What's this?
 
