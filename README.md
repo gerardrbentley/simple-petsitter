@@ -1,6 +1,10 @@
-# Simple Petsitter
+# Streamlit App
 
 Streamlit app deployed to Heroku
+
+- Barebones version 
+
+    [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/gerardrbentley/simple-petsitter/tree/barebones)
 
 ## What's this?
 
