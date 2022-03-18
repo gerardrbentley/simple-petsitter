@@ -37,7 +37,7 @@ Doesn't create credentials or try to open browser
 streamlit run streamlit_app.py --server.port $PORT --server.headless true
 ```
 
-### Manual App Creation Step 1
+### Manual App Creation
 
 - New App on [heroku](https://dashboard.heroku.com/apps)
 
@@ -58,3 +58,31 @@ streamlit run streamlit_app.py --server.port $PORT --server.headless true
 - Choose your branch for automatic deploys. (You can push code to other branches for safe keeping without overwriting the live site)
 
 ![Heroku Enable Auto Deployment](images/2022-03-17-22-35-53.png)
+
+
+### Making Updates
+
+Recommended branch and merge for small additions and features:
+
+```sh
+git checkout -b dev
+git add changed_stuff.py
+git commit -m "feat: new changed stuff!"
+# If others commit to main and you can handle your own merge hell
+# git fetch -a
+# git rebase origin/main
+git push origin dev
+```
+
+(See [gitlab guide](https://docs.gitlab.com/ee/topics/git/git_rebase.html) for more on rebasing interactively and force-pushes)
+
+Then head to github to merge the `dev` branch into `main` with a pull request. (or just merge it yourself locally and force push to `main` if you're solo...)
+
+![Github pull request suggestion](images/2022-03-17-22-47-03.png)
+
+(If you don't see a message like the above one, check out the [github guide](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request) for creating a pull request with the "Pull Requests" to the right of "Code")
+
+Continue with creating the pull request.
+Optionally request other users review your changes before they go live.
+
+![Github Create Pull Request](images/2022-03-17-22-51-40.png)
