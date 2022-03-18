@@ -12,12 +12,16 @@ Streamlit app deployed to Heroku
 - `streamlit_app.py`: The main app that gets run by streamlit
 - `requirements.txt`: Pins the version of packages needed (handled by Heroku)
 - `Procfile`: Special file to tell Heroku how to run our app (`streamlit run`)
+- `app.json`: Provides "Deploy to Heroku" functionality / specification
 - `LICENSE`: Follows streamlit's use of Apache 2.0 Open Source License
 - `.gitignore`: Tells git to avoid comitting / scanning certain local-specific files
 
 ## Local Setup
 
-Assumes working python installation and some command line knowledge ([install python my way](https://tech.gerardbentley.com/python/beginner/2022/01/29/install-python.html)).
+Assumes working python installation, working docker installation, and some command line knowledge ([install python my way](https://tech.gerardbentley.com/python/beginner/2022/01/29/install-python.html)).
+
+Local database setup is hardcoded and relies on docker being able to find the postgres container at `localhost:5432`.
+This is overriden by the environment argument `DATABASE_URL`.
 
 ```sh
 git clone git@github.com:gerardrbentley/simple-petsitter.git
@@ -26,6 +30,10 @@ python -m venv ./venv
 . ./venv/bin/activate
 # ./venv/Scripts/activate for Windows
 python -m pip install -r requirements.txt
+# Might need to install psycopg with conda
+# conda install -c conda-forge psycopg-c psycopg
+docker run -p "5432:5432" --name some-postgres -e POSTGRES_PASSWORD=mysecretpassword -d postgres
+python run init_database.py
 streamlit run streamlit_app.py
 ```
 
@@ -42,7 +50,7 @@ streamlit run streamlit_app.py --server.port $PORT --server.headless true
 
 ### Manual App Creation
 
-Heroku CLI is also popular (see [this streamlit recommended guide](https://towardsdatascience.com/quickly-build-and-deploy-an-application-with-streamlit-988ca08c7e83)
+Heroku CLI is also popular (see [this streamlit recommended guide](https://towardsdatascience.com/quickly-build-and-deploy-an-application-with-streamlit-988ca08c7e83))
 
 - New App on [heroku](https://dashboard.heroku.com/apps)
 
@@ -109,3 +117,12 @@ If everything seems good click the "Open App" button and check out your live str
 It ain't much (yet), but it's a live site with a Continuous Integration pipeline ready for changes.
 
 ![Site version 1](2022-03-17-23-10-48.png)
+
+### Adding Postgres
+
+Heroku provides a modest free tier Postgres container for your app.
+Go to the "Resources" tab to find "Add-ons" and search for "Postgres."
+Choose "Heroku Postgres" if there are multiple options.
+Agree to the terms and make sure it's the free option unless you intend to pay.
+
+![Heroku Postgres add-on search](images/2022-03-17-23-43-58.png)
