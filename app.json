@@ -1,0 +1,6 @@
+{
+    "name": "Streamlit App Example",
+    "description": "A barebones Streamlit App deployed to Heroku",
+    "repository": "https://github.com/gerardrbentley/simple-petsitter/tree/barebones",
+    "keywords": ["streamlit", "python"]
+}
