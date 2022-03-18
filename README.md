@@ -4,7 +4,6 @@ Streamlit app deployed to Heroku
 
 ## What's this?
 
-
 - `README.md`: This Document! To help you find your way around
 - `streamlit_app.py`: The main app that gets run by streamlit
 - `requirements.txt`: Pins the version of packages needed (handled by Heroku)
@@ -26,9 +25,9 @@ python -m pip install -r requirements.txt
 streamlit run streamlit_app.py
 ```
 
-## Heroku 
+## Heroku
 
-launch: see Procfile.
+Launch: see `Procfile`.
 
 Gets port from Heroku.
 Doesn't create credentials or try to open browser
@@ -39,6 +38,8 @@ streamlit run streamlit_app.py --server.port $PORT --server.headless true
 
 ### Manual App Creation
 
+Heroku CLI is also popular (see [this streamlit recommended guide](https://towardsdatascience.com/quickly-build-and-deploy-an-application-with-streamlit-988ca08c7e83)
+
 - New App on [heroku](https://dashboard.heroku.com/apps)
 
 ![Heroku New App Button](images/2022-03-17-22-23-25.png)
@@ -47,7 +48,7 @@ streamlit run streamlit_app.py --server.port $PORT --server.headless true
 
 ![Heroku create app screen](images/2022-03-17-22-26-33.png)
 
-- Select Github deployment for automated. Heroku CLI is also popular (see [this streamlit recommended guide](https://towardsdatascience.com/quickly-build-and-deploy-an-application-with-streamlit-988ca08c7e83))
+- Select Github deployment for automated
 
 ![Heroku app dashboard pre deploy](images/2022-03-17-22-30-14.png)
 
@@ -58,7 +59,6 @@ streamlit run streamlit_app.py --server.port $PORT --server.headless true
 - Choose your branch for automatic deploys. (You can push code to other branches for safe keeping without overwriting the live site)
 
 ![Heroku Enable Auto Deployment](images/2022-03-17-22-35-53.png)
-
 
 ### Making Updates
 
@@ -86,3 +86,22 @@ Continue with creating the pull request.
 Optionally request other users review your changes before they go live.
 
 ![Github Create Pull Request](images/2022-03-17-22-51-40.png)
+
+Once you're sure things are good, merge it!
+Optionally delete the branch; if you want a long running dev branch that's fine.
+If you want small named feature branches that's fine too and usually more descriptive.
+
+![Github Confirm merge](images/2022-03-17-23-01-01.png)
+
+Confirm the update to `main` is processed by checking the Heroku "Activity" tab for your app.
+You're looking (praying...) for "Build Succeeded" and "Deployed" (the bit after it is the git commit).
+
+![Heroku Activity](images/2022-03-17-23-06-29.png)
+
+Check out the build log to get more info on the guts of your deployment!
+
+If everything seems good click the "Open App" button and check out your live streamlit app hosted on Heroku!
+
+It ain't much (yet), but it's a live site with a Continuous Integration pipeline ready for changes.
+
+![Site version 1](2022-03-17-23-10-48.png)
