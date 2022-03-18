@@ -13,11 +13,13 @@ Streamlit app deployed to Heroku
 ## What's this?
 
 - `README.md`: This Document! To help you find your way around
-- `streamlit_app.py`: The main app that gets run by streamlit
-- `requirements.txt`: Pins the version of packages needed (handled by Heroku)
-- `Procfile`: Special file to tell Heroku how to run our app (`streamlit run`)
 - `app.json`: Provides "Deploy to Heroku" functionality / specification
+- `init_database.py`: Script run with `python init_database.py` to run postgres initialization scripts from `postgres/` folder
 - `LICENSE`: Follows streamlit's use of Apache 2.0 Open Source License
+- `Procfile`: Special file to tell Heroku how to run our app (`streamlit run`, run `init_database` before spinning up)
+- `requirements.txt`: Pins the version of packages needed (handled by Heroku)
+- `runtime.txt`: Special file to tell Heroku which python version to use
+- `streamlit_app.py`: The main app that gets run by streamlit
 - `.gitignore`: Tells git to avoid comitting / scanning certain local-specific files
 
 ## Local Setup
